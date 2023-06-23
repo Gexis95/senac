@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+  
+
+</head>
+<body>
+
+    <table id="tabela">
+        
+        <thead>
+            <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Endereço</th>
+            <th>Telefone</th>
+            <th>Cidade</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <td>Generino</td>
+                <td>30 anos</td>
+                <td>Rua Silva</td>
+                <td>44 988224422</td>
+                <td>Maringá</td>
+            </tr>
+
+            <tr>
+                <td>João</td>
+                <td>35 anos</td>
+                <td>Rua Amazonas</td>
+                <td>44 988213020</td>
+                <td>Paranavaí</td>
+            </tr>
+
+            <tr>
+                <td>Beltrano</td>
+                <td>15 anos</td>
+                <td>Rua dos Beija-flores</td>
+                <td>44 988354917</td>
+                <td>Nova Londrina</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#tabela').DataTable();
+        } );
+    </script>
+</body>
+</html>

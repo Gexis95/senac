@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nausetedface</title>
+
+    <style>
+        body{
+            background-image: url(https://images.pexels.com/photos/326333/pexels-photo-326333.jpeg?cs=srgb&dl=pexels-pixabay-326333.jpg&fm=jpg);
+            background-size: cover;
+        }
+
+        #sim{
+            height: 40px;
+            width: 60px;
+            background-color: white;
+            border: none;
+            border-radius: 10px;
+            margin-left: -50px;
+        }
+
+        #nao{
+            position: absolute;
+            height: 40px;
+            width: 60px;
+            background-color: white;
+            border: none;
+            border-radius: 10px;
+            margin-left: 8px;
+        }
+
+        #sim:hover{
+            background-color: green;
+        }
+
+        #nao:hover{
+            background-color: red;
+        }
+
+
+        .painel{
+            color: white;
+            margin: auto;
+            margin-top: 30px;
+            width: 500px;
+            height: 500px;
+            text-align: center;
+            background-color: rgba(170, 71, 0, 0.414);
+            padding-top: 20px;
+            border-radius: 20px;
+            box-shadow: 2px 2px 20px black;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="painel">
+        <H1>ARG MARUJO!</H1>
+        <img width="300px" src="https://pbs.twimg.com/media/FxQP5IsXwAAbO2t?format=jpg&name=large">
+
+        <h2>Sea of Thieves hoje?</h2>
+
+        <button id="sim" onclick="parabens()">Sim</button>
+        <button id="nao" onmouseover="fugir()">Não</button>
+
+    </div>
+
+    <script>
+        function fugir(){
+            var botaoNao = document.getElementById("nao")
+            
+            var larguraJanela = window.innerWidth;
+            var alturaJanela = window.innerHeight;
+            
+            var maxX = larguraJanela - botaoNao.offsetWidth;
+            var maxY = larguraJanela - botaoNao.offsetHeight;
+
+            var aleatorioX = Math.floor(Math.random()* maxX);
+            var aleatorioY = Math.floor(Math.random()* maxY);
+
+            botaoNao.style.left = aleatorioX + "px";
+            botaoNao.style.top = aleatorioY + "px";
+        }
+
+        function parabens(){
+            alert("Ouro e glória lhe espera!")
+        }
+    </script>
+</body>
+</html>

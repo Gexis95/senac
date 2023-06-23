@@ -1,0 +1,120 @@
+.container{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    
+}
+
+.quadrado{
+    width: 250px;
+    height: 250px;
+    text-align: center;
+    font-size: 150px;
+}
+
+.jogo{
+    background: rgb(27, 31, 44);
+    color: aliceblue;
+    border: 5px;
+    border-color: aliceblue;
+    border-style: solid;
+    margin: 20px auto;
+}
+
+body{
+    background-color:rgb(48, 48, 48);
+    font-family: fantasy;
+    font-size: 40px;
+    text-align: center;
+}
+
+.spam{
+    color: aliceblue;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.botao{
+    width: 100px;
+    height: 40px;
+    color: aliceblue;
+    background-color: black;
+    border-radius: 20px;
+    border: 1px;
+    text-align: center;
+    border-style: solid;
+    margin: 10px;
+}
+
+.botao:hover{
+    font-size: 12px;
+    transition-duration: 1s;
+}
+    
+    
+
+
+#q1{
+    background-color: aqua;
+    border: 5px;
+    border-color: aliceblue;
+    border-style: solid;
+}
+
+#q2{
+    background-color: brown;
+    border: 5px;
+    border-color: aliceblue;
+    border-style: solid;
+}
+
+#q3{
+    background-color: red;
+    border: 5px;
+    border-color: aliceblue;
+    border-style: solid;
+}
+
+#q4{
+    background-color: black;
+    border: 5px;
+    border-color: aliceblue;
+    border-style: solid;
+}
+
+#q5{
+    background-color: yellow;
+    border: 5px;
+    border-color: aliceblue;
+    border-style: solid;
+}
+
+#q6{
+    background-color: blue;
+    border: 5px;
+    border-color: aliceblue;
+    border-style: solid;
+}
+
+#q7{
+    background-color: blueviolet;
+    border: 5px;
+    border-color: aliceblue;
+    border-style: solid;
+}
+
+#q8{
+    background-color: green;
+    border: 5px;
+    border-color: aliceblue;
+    border-style: solid;
+}
+
+#q9{
+    background-color: rgb(230, 0, 142);
+    border: 5px;
+    border-color: aliceblue;
+    border-style: solid;
+    
+}
+

@@ -1,0 +1,124 @@
+body, p{
+    padding: 0;
+    margin: 0;
+    font-size:20px ;
+    font-style: normal;
+    text-align: center;
+    color: aliceblue;
+}
+
+header{
+    grid-area: cabecalho;
+    background-color: rgb(0, 0, 0);
+    border: 10px;
+    border-radius: 10px;
+}
+
+section{
+    grid-area: secao;
+    background-color: rgb(62, 63, 75);
+    border: 10px;
+    border-radius: 10px;
+}
+
+aside{
+    grid-area: barra-lateral;
+    background-color: rgb(62, 63, 75);
+    border: 10px;
+    border-radius: 10px;
+}
+
+footer{
+    grid-area: rodape;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.parte1, .parte2, .parte3{
+    width: 25%;
+    background-color: rgb(0, 124, 146);
+    border: 10px;
+    border-radius: 10px;
+}
+
+.parte2{
+    width: 50%;
+    margin: 0px;
+}
+
+.principal{
+    width: 80%;
+    margin:0 auto;
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 100px 450px 150px;
+    grid-template-areas:
+        "cabecalho cabecalho"
+        "secao barra-lateral"
+        "rodape rodape"
+    ;
+}
+
+@media(max-width: 992px){
+    .principal{
+        grid-template-columns: 100%;
+        grid-area: "cabecalho" "secao" "barra-lateral" "rodape" ;
+    }
+
+    footer{
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    .parte1, .parte2, .parte3{
+        margin: 0;
+        width: 49.5%;
+    }
+
+    .parte3{
+        width: 100%;
+        order: initial;
+    }
+
+}
+
+@media(max-width:768px){
+    .body{
+        margin: 0 15px;
+
+    }
+
+    .principal, .parte1, .parte2, .parte3{
+        width: 100%;
+    }
+
+    .parte2{
+        order: initial;
+    }
+}
+
+.img{
+    width: 60px;
+    border-radius: 5%;
+    border: 1px;
+}
+
+.img2{
+    border: 3px;
+    border-radius: 5%;
+    margin: 30px;
+}
+
+.img3{
+    width: 75px;
+    border: 3px;
+    border-radius: 100%;
+}
+
+.barra-lateralimg{
+    margin-top: 100px;
+    border: 10px;
+    border-radius: 10px;
+
+}

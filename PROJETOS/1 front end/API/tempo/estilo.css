@@ -1,0 +1,62 @@
+body{
+    background-image: url(https://services.meteored.com/img/article/como-sera-o-clima-de-dezembro-sera-que-as-chuvas-intensas-continuam-1669882123782_1280.jpeg);
+    background-size: cover;
+    padding-top: 30px
+}
+
+.titulo{
+    color: aliceblue;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 35px;
+}
+
+.painel{
+    background-color: rgba(0, 0, 0, 0.721);
+    width: 550px;
+    height: 650px;
+    margin: auto;
+    padding-top: 40px;
+    text-align: center;
+    color: aliceblue;
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 20px;
+    box-shadow: 10px 5px 40px black;
+}
+
+
+
+.barra{
+    border-radius: 10px;
+    border: none;
+    width: 350px;
+    height: 30px;
+    background-color: white;
+    text-align: center;
+}
+
+.botao{
+    width: 75px;
+    height: 35px;
+    border: none;
+    border-radius: 15px;
+    background-color: #0885cc;
+}
+
+.botao:hover{
+    background-color: #0f99e9;
+}
+
+.imgTempo{
+    animation: voltar 2s alternate infinite;
+}
+
+@keyframes voltar{
+    0%{
+        width: 90px;
+    }
+    100%{
+        width: 100px;
+    }
+}
+

@@ -1,0 +1,44 @@
+body{
+    text-align: center;
+    background-color: rgb(24, 24, 29);
+    color: aliceblue;
+    font-size: 22px;
+}
+
+button{
+    border-radius: 10px;
+    height: 48px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: none;
+}
+
+.painel{
+    border: solid rgb(255, 187, 0);
+    border-radius: 30px;
+    width: 600px;
+    height: 500px;
+    margin: auto;
+    margin-top: 150px;
+    background-color: rgb(0, 4, 81);
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button:hover{
+    background-color: rgb(212, 212, 212);
+    color: black;
+}
+
+.titulo{
+    font-size: 50px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+}
+
+input{
+    width: 250px;
+    height: 40px;
+    border: solid 3px rgb(255, 187, 0);
+    border-radius: 5px;
+    text-align: center;
+}

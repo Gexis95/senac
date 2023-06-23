@@ -1,0 +1,44 @@
+body{
+    background-color: rgb(28, 33, 44);
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.item{
+    background: rgb(0, 110, 201);
+    margin: 20px;
+    font-size: 20px;
+    text-align:center;
+    border-radius: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 350px;
+}
+
+.coluna{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.linha{
+    grid-template-rows:200px 400px 200px 400px ;
+}
+
+.sonicf{
+    width: 625px
+}
+
+.potef{
+    width: 505px;
+}
+
+.pokemonf{
+    width: 505px;
+}
+
+.havenf{
+    width: 211px;;
+}
+.imagens{
+    border: 8px solid rgb(231, 201, 68);
+    border-radius: 3%;
+}

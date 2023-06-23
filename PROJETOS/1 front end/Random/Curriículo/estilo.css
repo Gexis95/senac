@@ -1,0 +1,51 @@
+.foto {
+    border: 15px solid rgb(138, 169, 255);
+    border-radius: 34%;
+    width: 300px;
+
+}
+
+body {
+        background-color: rgb(9, 0, 138); 
+        text-align: center;
+        color: aliceblue;
+}
+
+ul {
+    list-style: none;  
+}
+
+.menu {
+    background-color: rgba(46, 46, 46, 0.986);
+    border-radius: 50px;
+}
+
+.menu ul li{
+    display: inline;
+}
+
+.menu ul li a {
+    color: rgb(255, 255, 255);
+    padding: 30px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.menu ul li a:hover {
+    background-color: rgb(0, 119, 255);
+    font-size: 18px;
+    border-radius: 20px;
+    transition-duration: 1s;
+}
+
+.tabela {
+    text-align: center;
+    background-color: rgba(46, 46, 46, 0.986);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-radius: 5%;
+}
+
+.tabela tr td:hover{
+        font-size: 30px;
+        color: rgb(0, 119, 255)
+}

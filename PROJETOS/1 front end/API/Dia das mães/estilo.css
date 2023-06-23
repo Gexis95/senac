@@ -1,0 +1,34 @@
+body{
+    background-image: url(countdown-mothers.jpg);
+    background-size: cover;
+    font-size: 22px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.painel{
+    width: 500px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.535);
+    border-radius: 10px;
+    padding-left: 40px;
+    margin: auto;
+    margin-top: 70px;
+    border: solid rgb(0, 0, 0) 1px;
+}
+
+button{
+    background-color: rgb(255, 80, 173);
+    color: rgb(0, 0, 0);
+    border: none;
+    height: 40px;
+    width: 60px;
+    border-radius: 10px;
+}
+
+button:hover{
+    background-color: rgb(255, 80, 140);
+    height: 43px;
+    width:63px ;
+    transition: 1s;
+}

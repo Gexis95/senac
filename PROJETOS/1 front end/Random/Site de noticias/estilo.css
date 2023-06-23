@@ -1,0 +1,39 @@
+.imagens {
+    border: 14px solid rgb(121, 121, 121);
+    border-radius: 10%;
+    width: 500px;
+}
+
+body{
+    background-color: rgb(36, 39, 46);
+    text-align: center;
+    color: aliceblue;
+}
+
+ul{
+    list-style: none;
+}
+
+.menu {
+    background-color: aliceblue;
+    border-radius: 50px;
+}
+
+.menu ul li a {
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.tabela{
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    margin:0px auto;
+    
+}
+
+.titulo{
+    color:red;
+    font-size: medium;
+}
