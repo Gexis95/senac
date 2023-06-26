@@ -75,7 +75,7 @@ function desenhar(){
 
     else if(bolaY + bolaDY > canvas.height - bolaRadius){
         
-        if(bolaX > raqueteX && bolaX < raqueteLargura){
+        if(bolaX > raqueteX && bolaX < raqueteX + raqueteLargura){
             bolaDY = -bolaDY;
         }else{
             document.location.reload(); //reinicia caso a bola passe a base
