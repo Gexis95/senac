@@ -63,6 +63,25 @@ function desenhar(){
     desenharRaquete();
     desenharBola();
 
+    //analisar colisao eixoX, colisao canto direita/esquerda
+    if(bolaX + bolaDX > canvas.width - bolaRadius || bolaX + bolaDX < bolaRadius){
+        bolaDX = -bolaDX;
+    }
+
+    //analisa a colição com o topo
+    if(bolaY + bolaDY < bolaRadius){
+        bolaDY = -bolaDY;
+    }
+
+    else if(bolaY + bolaDY > canvas.height - bolaRadius){
+        
+        if(bolaX > raqueteX && bolaX < raqueteLargura){
+            bolaDY = -bolaDY;
+        }else{
+            document.location.reload(); //reinicia caso a bola passe a base
+        }
+    }
+
     //se setaDireita estiver ativo &&"e" raqueteX < largura do canvas - raqueteLargura
     if(setaDireita === true && raqueteX < canvas.width - raqueteLargura){
         raqueteX = raqueteX + velocidadeRaquete; //anda pra direita
@@ -73,6 +92,9 @@ function desenhar(){
     else if(setaEsquerda && raqueteX > 0){
         raqueteX = raqueteX - velocidadeRaquete; //anda pra esquerda
     }
+
+    bolaX = bolaX + bolaDX; // faz a bola andar para direita/esquerda
+    bolaY = bolaY + bolaDY; //                       cima/baixo
 
     requestAnimationFrame(desenhar) //atualiazar tela de forma suave
 }
