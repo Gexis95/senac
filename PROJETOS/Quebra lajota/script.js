@@ -6,7 +6,7 @@ var desenho = canvas.getContext("2d");
 var raqueteAltura = 10;
 var raqueteLargura = 75;
 var raqueteX = (canvas.width - raqueteLargura) / 2; //centraliza a raquete
-var velocidadeRaquete = 7;
+var velocidadeRaquete = 10;
 
 //configurar a bola
 var bolaRadius = 10;
@@ -23,18 +23,22 @@ document.addEventListener("keydown", descerDaTecla);
 document.addEventListener("keyup", subirDaTecla);
 
 function descerDaTecla(tecla){
-    //se o valor = "direita" ||ou valor = "setaDireita"
-    if(tecla.key === "Right" || tecla.key === "ArrowRight"){
-        setaDireita = true; //ativa variavel setaDireita
+    if(tecla.key === "d" || tecla.key === "D" || tecla.key === "ArrowRight" || tecla.key === "Right"){
+        setaDireita = true;
 
-    //se o valor = "direita" ||ou valor = "setaDireita"
-    }else if(tecla.key === "Left" || tecla.key === "ArrowLeft"){
-        setaEsquerda = true; //ativa variavel setaEsquerda
+    }else if(tecla.key === "a" || tecla.key === "A" || tecla.key === "ArrowLeft" || tecla.key === "Left"){
+        setaEsquerda = true;
     }
 }
 
-function subirDaTecla(){
+function subirDaTecla(tecla){
+    
+    if(tecla.key === "d" || tecla.key === "D" || tecla.key === "ArrowRight" || tecla.key === "Right"){
+        setaDireita = false;
 
+    }else if(tecla.key === "a" || tecla.key === "A" || tecla.key === "ArrowLeft" || tecla.key === "Left"){
+        setaEsquerda = false;
+    }
 }
 
 function desenharRaquete(){
@@ -45,10 +49,19 @@ function desenharRaquete(){
     desenho.closePath();
 }
 
+function desenharBola(){
+    desenho.beginPath();
+    desenho.arc(bolaX, bolaY, bolaRadius, 0, Math.PI * 2);
+    desenho.fillStyle = "black";
+    desenho.fill();
+    desenho.closePath();
+}
+
 function desenhar(){
 
     desenho.clearRect(0,0, canvas.width, canvas.height); //limpa o frame anterior
     desenharRaquete();
+    desenharBola();
 
     //se setaDireita estiver ativo &&"e" raqueteX < largura do canvas - raqueteLargura
     if(setaDireita === true && raqueteX < canvas.width - raqueteLargura){
