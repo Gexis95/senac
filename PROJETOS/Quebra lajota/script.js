@@ -15,6 +15,26 @@ var bolaY = canvas.height - 30;
 var bolaDX = 2;                         //direção de bola em X(esquerda/direita)
 var bolaDY = -2;                        //direção da bola em Y(acima/abaixo)
 
+//configurar os tijolos
+var tijolosPorLinha = 3;
+var tijolosPorColuna = 2;
+var tijoloLargura = 75;
+var tijoloAltura = 20;
+var tijoloEspacamento = 10;
+var espacamentoSuperiorQuadro = 30;
+var espacamentoEsquerdoQuadro = 30;
+var tijolos = []; //lista com os tijolos
+
+//dedicado apenas a inicialização dos tijolos
+for(var coluna=0;coluna< tijolosPorColuna; coluna++ ){
+    tijolos[coluna] = []
+
+    for(var linha =0; linha < tijolosPorLinha; linha++){
+    
+        tijolos[coluna][linha] = {x:0, y:0, ativo:1 }
+    }
+}
+
 var setaDireita = false;
 var setaEsquerda = false;
 
@@ -57,11 +77,34 @@ function desenharBola(){
     desenho.closePath();
 }
 
+function desenharTijolos(){
+    for(var coluna = 0; coluna < tijolosPorColuna; coluna++){
+        for(var linha = 0; linha < tijolosPorLinha; linha++){
+            
+            if(tijolos [coluna][linha].ativo == 1){
+
+                var tijoloX = (coluna * (tijoloLargura + tijoloEspacamento)+ espacamentoEsquerdoQuadro);
+                var tijoloY = (linha * (tijoloAltura + tijoloEspacamento)+ espacamentoSuperiorQuadro);
+
+                tijolos[coluna][linha].x = tijoloX;
+                tijolos[coluna][linha].y = tijoloY;
+
+                desenho.beginPath();
+                desenho.rect(tijoloX, tijoloY, tijoloLargura, tijoloAltura);
+                desenho.fillStyle = "green"
+                desenho.fill();
+                desenho.closePath(); 
+            }
+        }
+    }
+}
+
 function desenhar(){
 
     desenho.clearRect(0,0, canvas.width, canvas.height); //limpa o frame anterior
     desenharRaquete();
     desenharBola();
+    desenharTijolos();
 
     //analisar colisao eixoX, colisao canto direita/esquerda
     if(bolaX + bolaDX > canvas.width - bolaRadius || bolaX + bolaDX < bolaRadius){
