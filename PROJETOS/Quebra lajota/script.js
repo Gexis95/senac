@@ -12,17 +12,17 @@ var velocidadeRaquete = 10;
 var bolaRadius = 10;
 var bolaX = canvas.width / 2;
 var bolaY = canvas.height - 30;
-var bolaDX = 2;                         //direção de bola em X(esquerda/direita)
-var bolaDY = -2;                        //direção da bola em Y(acima/abaixo)
+var bolaDX = 7;                         //direção de bola em X(esquerda/direita)
+var bolaDY = -7;                        //direção da bola em Y(acima/abaixo)
 
 //configurar os tijolos
 var tijolosPorLinha = 3;
-var tijolosPorColuna = 2;
+var tijolosPorColuna = 7;
 var tijoloLargura = 75;
 var tijoloAltura = 20;
-var tijoloEspacamento = 10;
-var espacamentoSuperiorQuadro = 30;
-var espacamentoEsquerdoQuadro = 30;
+var tijoloEspacamento = 8;
+var espacamentoSuperiorQuadro = 7;
+var espacamentoEsquerdoQuadro = 7;
 var tijolos = []; //lista com os tijolos
 
 //dedicado apenas a inicialização dos tijolos
@@ -99,12 +99,34 @@ function desenharTijolos(){
     }
 }
 
+function detectarColisao(){
+    for(var coluna = 0; coluna < tijolosPorColuna; coluna++){
+        for(var linha = 0; linha < tijolosPorLinha; linha++){
+
+            var tijolo = tijolos[coluna][linha];
+
+            if(tijolo.ativo === 1){
+
+                if(bolaX > tijolo.x
+                    && bolaX < tijolo.x + tijoloLargura
+                    && bolaY > tijolo.y
+                    && bolaY < tijolo.y + tijoloAltura){
+                        bolaDY = -bolaDY;
+                        tijolo.ativo =0;
+
+                    }
+            }
+        }
+    }
+}
+
 function desenhar(){
 
     desenho.clearRect(0,0, canvas.width, canvas.height); //limpa o frame anterior
     desenharRaquete();
     desenharBola();
     desenharTijolos();
+    detectarColisao();
 
     //analisar colisao eixoX, colisao canto direita/esquerda
     if(bolaX + bolaDX > canvas.width - bolaRadius || bolaX + bolaDX < bolaRadius){
