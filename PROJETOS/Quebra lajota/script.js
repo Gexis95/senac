@@ -9,20 +9,20 @@ var raqueteX = (canvas.width - raqueteLargura) / 2; //centraliza a raquete
 var velocidadeRaquete = 10;
 
 //configurar a bola
-var bolaRadius = 10;
+var bolaRadius = 3;
 var bolaX = canvas.width / 2;
 var bolaY = canvas.height - 30;
-var bolaDX = 7;                         //direção de bola em X(esquerda/direita)
-var bolaDY = -7;                        //direção da bola em Y(acima/abaixo)
+var bolaDX = 10;                         //direção de bola em X(esquerda/direita)
+var bolaDY = -10;                        //direção da bola em Y(acima/abaixo)
 
 //configurar os tijolos
 var tijolosPorLinha = 3;
-var tijolosPorColuna = 7;
+var tijolosPorColuna = 8;
 var tijoloLargura = 75;
 var tijoloAltura = 20;
-var tijoloEspacamento = 8;
-var espacamentoSuperiorQuadro = 7;
-var espacamentoEsquerdoQuadro = 7;
+var tijoloEspacamento = 2;
+var espacamentoSuperiorQuadro = 1;
+var espacamentoEsquerdoQuadro = 1;
 var tijolos = []; //lista com os tijolos
 
 //dedicado apenas a inicialização dos tijolos
@@ -120,6 +120,16 @@ function detectarColisao(){
     }
 }
 
+
+function gameOver(){
+    var gameover = document.getElementById(gameOver);
+    gameover.style.display = "block";
+}
+
+function reiniciar(){
+    document.location.reload;
+}
+
 function desenhar(){
 
     desenho.clearRect(0,0, canvas.width, canvas.height); //limpa o frame anterior
@@ -143,7 +153,7 @@ function desenhar(){
         if(bolaX > raqueteX && bolaX < raqueteX + raqueteLargura){
             bolaDY = -bolaDY;
         }else{
-            document.location.reload(); //reinicia caso a bola passe a base
+            gameOver();
         }
     }
 
