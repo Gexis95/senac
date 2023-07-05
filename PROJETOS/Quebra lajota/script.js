@@ -121,13 +121,13 @@ function detectarColisao(){
 }
 
 
-function gameOver(){
-    var gameover = document.getElementById(gameOver);
+function gameover(){
+    var gameover = document.getElementById("gameover");
     gameover.style.display = "block";
 }
 
 function reiniciar(){
-    document.location.reload;
+    document.location.reload();
 }
 
 function desenhar(){
@@ -153,7 +153,7 @@ function desenhar(){
         if(bolaX > raqueteX && bolaX < raqueteX + raqueteLargura){
             bolaDY = -bolaDY;
         }else{
-            gameOver();
+            gameover();
         }
     }
 
