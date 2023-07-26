@@ -16,9 +16,9 @@ var bolaDX = 7;                         //direção de bola em X(esquerda/direit
 var bolaDY = -7;                        //direção da bola em Y(acima/abaixo)
 
 //configurar os tijolos
-var tijolosPorLinha = 3;
-var tijolosPorColuna = 8;
-var tijoloLargura = 75;
+var tijolosPorLinha = 1;
+var tijolosPorColuna = 1;
+var tijoloLargura = 5000;
 var tijoloAltura = 20;
 var tijoloEspacamento = 2;
 var espacamentoSuperiorQuadro = 1;
@@ -83,7 +83,7 @@ function desenharBola(){
 
 function desenharTijolos(){
     for(var coluna = 0; coluna < tijolosPorColuna; coluna++){
-        for(var linha = 0; linha < tijolosPorLinha; linha++){
+        for(var linha = 0; linha < tijolosPorLinha; linha++){ 
             
             if(tijolos [coluna][linha].ativo == 1){
 
@@ -120,9 +120,10 @@ function detectarColisao(){
                         tela = document.getElementById("ponto");
                         pontuacao = pontuacao + pontosPorTijolo;
                         tela.innerHTML = "Pontuação: " + pontuacao;
+                        gerarEfeitoSonoro('bonk.mp3')
 
                         if(pontuacao === totalPontuacao){
-                            window.location.reload();
+                            vitoria();
                         }
 
                     }
@@ -144,8 +145,39 @@ document.addEventListener("keydown", function(apertaR) {
     }
   });
 
+
+
 function reiniciar(){
-    document.location.reload();
+    location.reload();
+}
+
+
+function vitoria(){
+    var mensagem = document.getElementById("vitoria");
+    mensagem.style.display = "block";
+}
+
+
+function gerarEfeitoSonoro(som){
+    // Cria contexto de áudio.
+    var contexto = new (window.AudioContext)
+    // Faz uma requisição para carregar o arquivo de som.
+    var requisicao = new XMLHttpRequest();
+    requisicao.open('GET',som,true);
+    requisicao.responseType = 'arraybuffer'; // Armazenar na memória.
+
+    requisicao.onload = function(){
+        // Decodificar o arquivo de som.
+        contexto.decodeAudioData(requisicao.response, function(buffer) {
+            // Reprodução do som.
+            var fonte = contexto.createBufferSource();
+            fonte.buffer = buffer;
+            // Conectar saída de som.
+            fonte.connect(contexto.destination);
+            fonte.start(0); // Executa o som.
+        });
+    }
+    requisicao.send();
 }
 
 function desenhar(){
