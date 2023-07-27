@@ -16,9 +16,9 @@ var bolaDX = 7;                         //direção de bola em X(esquerda/direit
 var bolaDY = -7;                        //direção da bola em Y(acima/abaixo)
 
 //configurar os tijolos
-var tijolosPorLinha = 1;
-var tijolosPorColuna = 1;
-var tijoloLargura = 5000;
+var tijolosPorLinha = 3;
+var tijolosPorColuna = 8;
+var tijoloLargura = 75;
 var tijoloAltura = 20;
 var tijoloEspacamento = 2;
 var espacamentoSuperiorQuadro = 1;
@@ -120,10 +120,11 @@ function detectarColisao(){
                         tela = document.getElementById("ponto");
                         pontuacao = pontuacao + pontosPorTijolo;
                         tela.innerHTML = "Pontuação: " + pontuacao;
-                        gerarEfeitoSonoro('bonk.mp3')
+                        gerarEfeitoSonoro('score.mp3')
 
                         if(pontuacao === totalPontuacao){
                             vitoria();
+                            gerarEfeitoSonoro('victory.mp3')
                         }
 
                     }
@@ -133,23 +134,30 @@ function detectarColisao(){
 }
 
 
+contador = 0;
+
 function gameover(){
     var gameover = document.getElementById("gameover");
     gameover.style.display = "block";
+
+    if(contador < 1){
+        gerarEfeitoSonoro('lose.mp3');
+    }
+    contador = contador +1;
 }
+
+function reiniciar(){
+    location.reload();
+    contador = 0;
+}
+
 
 //reinicia a página ao pressionar R
 document.addEventListener("keydown", function(apertaR) {
     if (apertaR.key === "r" || apertaR.key === "R") {
-      location.reload();
+      reiniciar();
     }
   });
-
-
-
-function reiniciar(){
-    location.reload();
-}
 
 
 function vitoria(){
@@ -191,17 +199,20 @@ function desenhar(){
     //analisar colisao eixoX, colisao canto direita/esquerda
     if(bolaX + bolaDX > canvas.width - bolaRadius || bolaX + bolaDX < bolaRadius){
         bolaDX = -bolaDX;
+        gerarEfeitoSonoro('bonk.mp3');
     }
 
     //analisa a colição com o topo
     if(bolaY + bolaDY < bolaRadius){
         bolaDY = -bolaDY;
+        gerarEfeitoSonoro('bonk.mp3');
     }
 
     else if(bolaY + bolaDY > canvas.height - bolaRadius - raqueteAltura){
         
         if(bolaX > raqueteX && bolaX < raqueteX + raqueteLargura){
             bolaDY = -bolaDY;
+            gerarEfeitoSonoro('bonk.mp3');
         }else{
             gameover();
         }
