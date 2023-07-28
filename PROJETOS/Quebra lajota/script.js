@@ -95,7 +95,7 @@ function desenharTijolos(){
 
                 desenho.beginPath();
                 desenho.rect(tijoloX, tijoloY, tijoloLargura, tijoloAltura);
-                desenho.fillStyle = "green"
+                desenho.fillStyle = "green";
                 desenho.fill();
                 desenho.closePath(); 
             }
@@ -139,6 +139,8 @@ contador = 0;
 function gameover(){
     var gameover = document.getElementById("gameover");
     gameover.style.display = "block";
+    bolaDX = 0;
+    bolaDY = 0;
 
     if(contador < 1){
         gerarEfeitoSonoro('lose.mp3');
@@ -163,6 +165,9 @@ document.addEventListener("keydown", function(apertaR) {
 function vitoria(){
     var mensagem = document.getElementById("vitoria");
     mensagem.style.display = "block";
+    bolaDX = 0;
+    bolaDY = 0;
+
 }
 
 
