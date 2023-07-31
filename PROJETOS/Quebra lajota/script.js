@@ -4,21 +4,21 @@ var desenho = canvas.getContext("2d");
 
 //configurar raquete
 var raqueteAltura = 10;
-var raqueteLargura = 75 ;
+var raqueteLargura = 1000;
 var raqueteX = (canvas.width - raqueteLargura) / 2; //centraliza a raquete
 var velocidadeRaquete = 12;
 
 //configurar a bola
-var bolaRadius = 8;
+var bolaRadius = 10;
 var bolaX = canvas.width / 2;
 var bolaY = canvas.height - 30;
 var bolaDX = 7;                         //direção de bola em X(esquerda/direita)
 var bolaDY = -7;                        //direção da bola em Y(acima/abaixo)
 
 //configurar os tijolos
-var tijolosPorLinha = 3;
-var tijolosPorColuna = 8;
-var tijoloLargura = 75;
+var tijolosPorLinha = 1;
+var tijolosPorColuna = 1;
+var tijoloLargura = 750;
 var tijoloAltura = 20;
 var tijoloEspacamento = 2;
 var espacamentoSuperiorQuadro = 1;
@@ -29,15 +29,87 @@ var pontosPorTijolo = 100;
 var totalPontuacao = tijolosPorLinha * tijolosPorColuna * 100;
 var pontuacao = 0;
 
-//dedicado apenas a inicialização dos tijolos
-for(var coluna=0;coluna< tijolosPorColuna; coluna++ ){
-    tijolos[coluna] = []
 
-    for(var linha =0; linha < tijolosPorLinha; linha++){
-    
-        tijolos[coluna][linha] = {x:0, y:0, ativo:1 }
+function facil(){
+    raqueteLargura = 90;
+    tijolosPorLinha = 2;
+    tijolosPorColuna = 5;
+    tijoloLargura = 115;
+    tijoloEspacamento = 5;
+    bolaRadius = 12;
+    bolaDX = 3;
+    bolaDY = -2;
+    bolaX = canvas.width / 2;
+    bolaY = canvas.height - 30; 
+    totalPontuacao = tijolosPorLinha * tijolosPorColuna * 100;
+    pontuacao = 0;
+    iniciarTijolos();
+}
+
+function medio(){
+    raqueteLargura = 75;
+    tijolosPorLinha = 2;
+    tijolosPorColuna = 5;
+    tijoloLargura = 115;
+    tijoloEspacamento = 5;
+    bolaRadius = 10;
+    bolaDX = 6;
+    bolaDY = -5;
+    bolaX = canvas.width / 2;
+    bolaY = canvas.height - 30;  
+    totalPontuacao = tijolosPorLinha * tijolosPorColuna * 100;
+    pontuacao = 0;
+    iniciarTijolos();
+}
+
+function dificil(){
+    raqueteLargura = 75;
+    tijolosPorLinha = 3;
+    tijolosPorColuna = 8;
+    tijoloLargura = 75;
+    tijoloAltura = 20;
+    tijoloEspacamento = 2;
+    bolaRadius = 10;
+    bolaDX = 7;
+    bolaDY = -7;
+    bolaX = canvas.width / 2;
+    bolaY = canvas.height - 30; 
+    totalPontuacao = tijolosPorLinha * tijolosPorColuna * 100;
+    pontuacao = 0;
+    iniciarTijolos();
+}
+
+function ultra(){
+    raqueteLargura = 70;
+    velocidadeRaquete = 18;
+    tijolosPorLinha = 3;
+    tijolosPorColuna = 8;
+    tijoloLargura = 75;
+    tijoloAltura = 20;
+    tijoloEspacamento = 2;
+    bolaRadius = 8;
+    bolaDX = 12;
+    bolaDY = -12;
+    bolaX = canvas.width / 2;
+    bolaY = canvas.height - 30; 
+    totalPontuacao = tijolosPorLinha * tijolosPorColuna * 100;
+    pontuacao = 0;
+    iniciarTijolos();
+}
+
+function iniciarTijolos(){
+            //dedicado apenas a inicialização dos tijolos
+            for(var coluna=0;coluna< tijolosPorColuna; coluna++ ){
+                tijolos[coluna] = []
+
+            for(var linha =0; linha < tijolosPorLinha; linha++){
+        
+                tijolos[coluna][linha] = {x:0, y:0, ativo:1 }
+        }
     }
 }
+
+iniciarTijolos();
 
 var setaDireita = false;
 var setaEsquerda = false;
