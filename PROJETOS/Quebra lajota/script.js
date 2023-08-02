@@ -192,7 +192,7 @@ function detectarColisao(){
                         tela = document.getElementById("ponto");
                         pontuacao = pontuacao + pontosPorTijolo;
                         tela.innerHTML = "Pontuação: " + pontuacao;
-                        gerarEfeitoSonoro('score.mp3')
+                        gerarEfeitoSonoro('score.mp3');
 
                         if(pontuacao === totalPontuacao){
                             vitoria();
