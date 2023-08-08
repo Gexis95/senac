@@ -4,7 +4,7 @@ var desenho = canvas.getContext("2d");
 
 //configurar raquete
 var raqueteAltura = 10;
-var raqueteLargura = 1000;
+var raqueteLargura = 75;
 var raqueteX = (canvas.width - raqueteLargura) / 2; //centraliza a raquete
 var velocidadeRaquete = 12;
 
@@ -16,9 +16,9 @@ var bolaDX = 7;                         //direção de bola em X(esquerda/direit
 var bolaDY = -7;                        //direção da bola em Y(acima/abaixo)
 
 //configurar os tijolos
-var tijolosPorLinha = 1;
-var tijolosPorColuna = 1;
-var tijoloLargura = 750;
+var tijolosPorLinha = 2;
+var tijolosPorColuna = 5;
+var tijoloLargura = 115;
 var tijoloAltura = 20;
 var tijoloEspacamento = 2;
 var espacamentoSuperiorQuadro = 1;
