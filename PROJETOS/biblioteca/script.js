@@ -1,39 +1,39 @@
-class livro{
-    //classe livro
-    constructor(titulo, autor){
-        this.titulo = titulo;
+
+class Livro {
+    //classe livro, 
+    constructor(titulo, autor){ 
+        this.tilulo = titulo;
         this.autor = autor;
-    }
+     }
 }
 
-//classe responsavel por gerenciar os elementos em tela
-class gerenciamento{
+//classe gerenciamento, responsável por gerenciar os elementos em tela
+class gerenciamento {
     constructor(){
         this.livros = []; //lista de livros
         this.formulario = document.getElementById('formulario');
         this.listagem = document.getElementById('listagem');
 
-        //monitorar o submit(click no botão) do formulario
-        this.formulario.addEventListener('submit', this.adicionar.bind(this));
+        //monitorar o submit(click do botão) do formulario - chama funcao adicionar
+        this.formulario.addEventListener('submit', this.adicionar.bind(this));  
     }
     adicionar(event){
-        alert('teste');
         event.preventDefault();
-        var titulo = document.getElementById('titulo').value;
-        var autor = document.getElementById('autor').value;
-
-        var livro = new livro(titulo,autor);//criando objeto livro
-        this.livros.push(livro); //adiciona objeto livro na listra livros;
+        var titulo = document.getElementById('titulo').value; //pega valor titulo
+        var autor = document.getElementById('autor').value; //pegar valor autor
+        
+        var livro = new Livro(titulo, autor); //criando objeto livro
+        this.livros.push(livro); //adiciona objeto livro na lista livros;
         this.exibirTela();
-        titulo.value = ''; //limpar campo titulo
-        autor.value = '';  //--     --    autor
+        titulo.value = '';  //limpar campo titulo
+        autor.value = '';   //limpar campo autor
     }
     exibirTela(){
         this.listagem.innerHTML = ''; //limpa lista
-        for(var i=0; i < this.livros.length; i++){  //percorrer toda lista de livros
-            var livro = this.book [i];
+        for(var i=0; i < this.livros.length; i++ ){ //percorrer toda lista de livros
+            var livro = this.livros[i];
             var li = document.createElement('li');
-            li.textContent = livro.titulo + ' por ' +livro.autor;
+            li.textContent = livro.tilulo + ' por ' + livro.autor;
             this.listagem.appendChild(li);
         }
     }
