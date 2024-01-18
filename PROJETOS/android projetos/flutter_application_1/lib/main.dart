@@ -47,11 +47,58 @@ import 'package:flutter/material.dart';
           ),
         ),
         
+        //botão flutuante no canto direito abaixo
         floatingActionButton: FloatingActionButton(
-          backgroundColor: const Color.fromARGB(255, 0, 42, 255),
-          child: Icon(Icons.add),
-          onPressed: () {},
+          backgroundColor: const Color.fromARGB(255, 0, 42, 255), //altera a cor do botão
+          child: Icon(Icons.add),                                   //icone do botão
+          onPressed: () {},                                         //ação ao clicar
         ),
+
+      //barra de navegação inferior
+        bottomNavigationBar: BottomNavigationBar(items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Principal'),
+          BottomNavigationBarItem(icon: Icon(Icons.business), label: 'Negócios'),
+          BottomNavigationBarItem(icon: Icon(Icons.school), label: 'escola'),
+        ]),
+
+        //barra lateral do aplictivo
+        drawer: Drawer(
+          backgroundColor: Colors.white,
+          //lista dos itens do menu
+          child: ListView(
+            children: const <Widget> [
+
+              DrawerHeader(decoration: BoxDecoration(color: Colors.green),
+              child: Text(
+                'Menu App',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                )
+              ),
+             ),
+
+             ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Página Inicial'),
+              //onTap: () {}
+             ),
+
+             ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Configurações'),
+              //onTap: (){}
+             ),
+
+             ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text('Perfil'),
+              //onTap: (){}
+             ),
+            ],
+          ),
+        ),
+
       ),
     );
   }
