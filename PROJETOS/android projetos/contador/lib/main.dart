@@ -62,6 +62,21 @@ class _EstadoAplicativo extends State<Aplicativo> {
                 child: const Icon(Icons.add),
               ),
             ),
+
+            const FloatingActionButton(
+              onPressed: null,
+              tooltip: 'Zerar Contagem',
+              child: Icon(Icons.refresh),
+            ),
+
+            const Padding(
+              padding: EdgeInsets.only(right: 20.00),
+              child: FloatingActionButton(
+                onPressed: null,
+                tooltip: 'Incrementar contador 2',
+                child: Icon(Icons.add),
+              ), 
+            ),
           ],
         ),
       ),
