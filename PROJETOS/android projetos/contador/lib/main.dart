@@ -12,6 +12,7 @@ class Aplicativo extends StatefulWidget {
   State<Aplicativo> createState() => _EstadoAplicativo();
 }
 
+//variaveis
 //"_" indica que a classe é privada
 class _EstadoAplicativo extends State<Aplicativo> {
   int contador1 = 0;
@@ -19,9 +20,55 @@ class _EstadoAplicativo extends State<Aplicativo> {
   var _tempo = 60;
   late Timer _timer;
   bool _clique = true;
+  Color cor1 = Colors.black;
+  Color cor2 = Colors.black;
+
+  @override
+  void initState() {
+    super.initState();
+    _iniciarTimer();
+  }
+
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
+  void _iniciarTimer() {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        if (_tempo > 0) {
+          _tempo--;
+        } else {
+          _timer.cancel;
+        }
+      });
+    });
+  }
+
+  void mudarCor() {
+    if (contador1 > contador2) {
+      cor1 = Colors.red;
+      cor2 = Colors.black;
+    } else if (contador2 > contador1) {
+      cor1 = Colors.black;
+      cor2 = Colors.red;
+    } else {
+      cor1 = Colors.blue;
+      cor2 = Colors.blue;
+    }
+  }
+
+  void _reiniciar() {
+    setState(() {
+      contador1 = 0;
+      contador2 = 0;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    mudarCor();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -40,7 +87,18 @@ class _EstadoAplicativo extends State<Aplicativo> {
             children: [
               Text(
                 'Contador 1: $contador1',
-                style: const TextStyle(fontSize: 30),
+                style: TextStyle(fontSize: 30, color: cor1),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                'Contador 2: $contador2',
+                style: TextStyle(fontSize: 30, color: cor2),
+              ),
+              const SizedBox(height: 30),
+
+              Text('Tempo restante: $_tempo segundos', style: const TextStyle(fontSize: 30),
               ),
             ],
           ),
@@ -58,24 +116,27 @@ class _EstadoAplicativo extends State<Aplicativo> {
                     contador1++;
                   });
                 },
+
                 tooltip: 'Incrementar Contador 1',
                 child: const Icon(Icons.add),
               ),
             ),
-
-            const FloatingActionButton(
-              onPressed: null,
+            FloatingActionButton(
+              onPressed: _reiniciar,
               tooltip: 'Zerar Contagem',
-              child: Icon(Icons.refresh),
+              child: const Icon(Icons.refresh),
             ),
-
-            const Padding(
-              padding: EdgeInsets.only(right: 20.00),
+            Padding(
+              padding: const EdgeInsets.only(right: 20.00),
               child: FloatingActionButton(
-                onPressed: null,
+                onPressed: () {
+                  setState(() {
+                    contador2++;
+                  });
+                },
                 tooltip: 'Incrementar contador 2',
-                child: Icon(Icons.add),
-              ), 
+                child: const Icon(Icons.add),
+              ),
             ),
           ],
         ),
