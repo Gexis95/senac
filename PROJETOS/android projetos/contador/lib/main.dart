@@ -41,6 +41,7 @@ class _EstadoAplicativo extends State<Aplicativo> {
           _tempo--;
         } else {
           _timer.cancel;
+          _clique = false;
         }
       });
     });
@@ -63,7 +64,11 @@ class _EstadoAplicativo extends State<Aplicativo> {
     setState(() {
       contador1 = 0;
       contador2 = 0;
+      _tempo = 60;
+      _clique = true;
     });
+    _timer.cancel();
+    _iniciarTimer();
   }
 
   @override
@@ -97,8 +102,9 @@ class _EstadoAplicativo extends State<Aplicativo> {
                 style: TextStyle(fontSize: 30, color: cor2),
               ),
               const SizedBox(height: 30),
-
-              Text('Tempo restante: $_tempo segundos', style: const TextStyle(fontSize: 30),
+              Text(
+                'Tempo restante: $_tempo segundos',
+                style: const TextStyle(fontSize: 30),
               ),
             ],
           ),
@@ -113,7 +119,9 @@ class _EstadoAplicativo extends State<Aplicativo> {
                 //onPressed: _clique ? (){setState(() {});} :null,
                 onPressed: () {
                   setState(() {
-                    contador1++;
+                    if (_clique == true) {
+                      contador1++;
+                    }
                   });
                 },
 
@@ -131,7 +139,9 @@ class _EstadoAplicativo extends State<Aplicativo> {
               child: FloatingActionButton(
                 onPressed: () {
                   setState(() {
-                    contador2++;
+                    if (_clique == true) {
+                      contador2++;
+                    }
                   });
                 },
                 tooltip: 'Incrementar contador 2',
