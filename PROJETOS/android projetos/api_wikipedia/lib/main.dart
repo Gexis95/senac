@@ -15,6 +15,7 @@ class Principal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Aplicação com API',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: home(),
@@ -71,7 +72,7 @@ class home_state extends State<home> {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage('link da imagem'),
+                image: NetworkImage('https://blenderartists.org/uploads/default/original/4X/7/e/2/7e2d7bea4ac21388c4a96e1371f375c4ce00094b.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -82,7 +83,7 @@ class home_state extends State<home> {
             padding: const EdgeInsets.all(20.0),
             child: Center(
               child: Card(
-                color: Colors.white,
+                color: Color.fromARGB(182, 255, 255, 255),
                 elevation: 5.0,
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -131,12 +132,15 @@ class home_state extends State<home> {
                             );
                           },
                           child: Center(
+                            child: Hero(
+                              tag: imagem,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(25.0),
                               child: Image.network(imagem, height: 150),
                             ),
                           ),
                         ),
+                      ),
                     ],
                   ),
                 ),
