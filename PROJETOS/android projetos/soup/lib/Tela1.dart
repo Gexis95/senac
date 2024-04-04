@@ -24,7 +24,31 @@ class calcularCombustivelEstado extends State<Tela1> {
         icone = Icons.error;
         corIcone = Colors.red;
         //informa o usuário do erro cometido
-        resultado = 'Por favor insira o preço do alcool ou gasolina';a
+        resultado = 'Por favor insira o preço do alcool ou gasolina';
+      });
+    }
+
+    //preço do alcool divido pelo preço da gasolina
+    double total = precoAlcool / precoGasolina;
+
+    //abastece com alcool
+    if (total < 0.7) {
+      setState(() {
+        icone = Icons.local_drink;
+        corIcone = Colors.green;
+        resultado = "Abasteça com Álcool!";
+      });
+    } else if (total > 0.7) {
+      setState(() {
+        icone = Icons.local_gas_station;
+        corIcone = Colors.blue;
+        resultado = "Abasteça com Gasolina!";
+      });
+    } else {
+      setState(() {
+        icone = Icons.autorenew_sharp;
+        corIcone = Colors.deepOrangeAccent;
+        resultado = "Qualquer um!";
       });
     }
   }
@@ -56,8 +80,8 @@ class calcularCombustivelEstado extends State<Tela1> {
               decoration: const InputDecoration(labelText: 'Preço da Gasolina'),
             ),
             const SizedBox(height: 20),
-            const ElevatedButton(
-              onPressed: null,
+            ElevatedButton(
+              onPressed: calcularOpcao,
               child: Text('Calcular'),
             ),
             const SizedBox(
