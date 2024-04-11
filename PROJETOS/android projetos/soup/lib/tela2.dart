@@ -22,9 +22,24 @@ class calcular extends State<Tela2> {
     } else {
       setState(() {
         resultado = 0.0;
-        descricao = 'Insira um valor" Algo está errado';
+        descricao = classificar(resultado);
       });
-      
+    }
+  }
+
+  String classificar(double valor) {
+    if (valor < 18.5) {
+      return 'Abaixo do Peso';
+    } else if (valor >= 18.5 && valor < 24.9) {
+      return 'Peso normal';
+    } else if (valor >= 25 && valor < 29.9) {
+      return 'Sobrepeso';
+    } else if (valor >= 30 && valor < 34.9) {
+      return 'Obesidade Grau I';
+    } else if (valor >= 35 && valor > 39.9) {
+      return 'Obesidade Grau II';
+    } else {
+      return 'Obesidade Grau III';
     }
   }
 
@@ -65,9 +80,12 @@ class calcular extends State<Tela2> {
             ),
             SizedBox(height: 60),
             Text(
-              'Classificação: $descricao',
+              'Resultado: ${resultado}5',
               style: TextStyle(fontSize: 20),
-            )
+            ),
+            Text('Classificação: $descricao',
+            style: TextStyle(fontSize: 20)
+            ),
           ],
         ),
       ),
