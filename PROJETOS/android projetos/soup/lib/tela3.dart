@@ -9,6 +9,7 @@ class calcular extends State<Tela3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 15, 16, 24),
 
     );
   }

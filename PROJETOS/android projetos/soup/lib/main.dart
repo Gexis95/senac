@@ -16,7 +16,7 @@ class Aplicativo extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Soup',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData.dark(),
       home: Menu(),
       routes: {
         '/tela1': (context) => Tela1(),
@@ -34,6 +34,7 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 15, 16, 24),
       appBar: AppBar(
         title:
             const Text('Menu Principal', style: TextStyle(color: Colors.white)),
@@ -99,7 +100,7 @@ class botao extends StatelessWidget {
       padding: EdgeInsets.all(8.0),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.black,
+            backgroundColor: Color.fromARGB(255, 29, 29, 33),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0))),
         onPressed: () {
@@ -116,7 +117,7 @@ class botao extends StatelessWidget {
             SizedBox(height: 8),
             Text(
               texto,
-              style: TextStyle(color: Colors.black, fontSize: 19.0),
+              style: TextStyle(color: const Color.fromARGB(255, 255, 255, 255), fontSize: 19.0),
             ),
           ],
         ),

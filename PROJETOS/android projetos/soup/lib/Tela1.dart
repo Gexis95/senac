@@ -10,7 +10,7 @@ class calcularCombustivelEstado extends State<Tela1> {
   TextEditingController entradaAlcool = TextEditingController();
   TextEditingController entradaGasolina = TextEditingController();
   IconData icone = Icons.help;
-  Color corIcone = Colors.black;
+  Color corIcone = const Color.fromARGB(255, 255, 255, 255);
   String resultado = '';
 
   void calcularOpcao() {
@@ -56,6 +56,7 @@ class calcularCombustivelEstado extends State<Tela1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 15, 16, 24),
       appBar: AppBar(
         title: const Text(
           'Álcool ou Gasolina?',
@@ -66,7 +67,7 @@ class calcularCombustivelEstado extends State<Tela1> {
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             TextField(
               controller: entradaAlcool,
