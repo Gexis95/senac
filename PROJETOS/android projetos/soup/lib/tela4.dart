@@ -58,11 +58,14 @@ class calcular extends State<Tela4> {
                       porcentagem = value.round();
                     },);
                   } ),
-                ),
               ],
             ),
             SizedBox(height: 30,),
-            Text('Total da Conta: ${calcularTotal()}', style: TextStyle(fontSize: 25),),
+            Text('Total da Conta: ${calcularTotal()}',
+             style: TextStyle(fontSize: 25),),
+            
+            Text('Gorgeta: ${calcularTotal() - valor}',
+             style: TextStyle(fontSize: 20),),
           ],
         ),
       ),

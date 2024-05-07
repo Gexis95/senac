@@ -19,6 +19,10 @@ class calcular extends State<Tela2> {
 
     //se altura for maior que zero e peso tbm
     if (alturaValor > 0 && pesoValor > 0) {
+      setState(() {
+        resultado = pesoValor / (alturaValor * alturaValor);
+        descricao = classificar(resultado);
+      });
     } else {
       setState(() {
         resultado = 0.0;
@@ -61,14 +65,14 @@ class calcular extends State<Tela2> {
               controller: altura,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                  labelText: 'Altura (cm)',
+                  labelText: 'Altura (M)',
                   labelStyle: TextStyle(color: Colors.white)),
             ),
             TextField(
               controller: peso,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                  labelText: 'Peso(kg)',
+                  labelText: 'Peso (KG)',
                   labelStyle: TextStyle(color: Colors.white)),
             ),
             SizedBox(height: 20),
@@ -80,12 +84,10 @@ class calcular extends State<Tela2> {
             ),
             SizedBox(height: 60),
             Text(
-              'Resultado: ${resultado}5',
+              'Resultado: ${resultado.toStringAsFixed(3)}',
               style: TextStyle(fontSize: 20),
             ),
-            Text('Classificação: $descricao',
-            style: TextStyle(fontSize: 20)
-            ),
+            Text('Classificação: $descricao', style: TextStyle(fontSize: 20)),
           ],
         ),
       ),
